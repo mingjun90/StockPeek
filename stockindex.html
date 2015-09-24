@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>StockPeek</title>
+    <link rel="stylesheet" type="text/css" href="mycss/mystyle.css">
+    <link rel="stylesheet" type="text/css" href="mycss/bootstrap.min.css">
+    <script type="text/javascript" src="./myjs/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="./myjs/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./myjs/jquery.tablesorter.js"></script>
+</head>
+
+<body id="main-wrapper-for-footer">
+<div id="navigation"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="mypage-header col-sm-12">
+            <h1><br>A Web To Peek The Stocks Information<br><br></h1>
+        </div>
+
+        <div class="container" >
+    <!--<div class="container" id="thisexample">-->
+        <h4>This is a table example:</h4>
+        <table id="myTable0" class="table col-sm-12">
+            <thead>
+            <tr>
+                <th title="1" class="header sort-table asc">Symbol</th>
+                <th title="2" class="header sort-table asc">Price</th>
+                <th title="3" class="header sort-table asc">Change</th>
+                <th title="4" class="header sort-table asc">Percent Change</th>
+                <th title="5" class="header sort-table asc">Ask</th>
+                <th title="6" class="header sort-table asc">Bid</th>
+                <th title="7" class="header sort-table asc">Open</th>
+                <th title="8" class="header sort-table asc">Previous Close</th>
+                <th title="9" class="header sort-table asc">Volume</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="sub">
+                <td class="c1"><span class='topbtnleft'>
+                    <button class="hoverbtn hoverbtn-refresh"><span class="glyphicon glyphicon-refresh"></span></button>
+                </span>TWTR</td>
+                <td class="c2">27.75</td>
+                <td class="c3">0.58</td>
+                <td class="c4">+2.13%</td>
+                <td class="c5">27.63</td>
+                <td class="c6">27.58</td>
+                <td class="c7">27.15</td>
+                <td class="c8">27.17</td>
+                <td class="c9">13335392<span class='topbtnright'>
+                    <button class="hoverbtn"><span class="glyphicon glyphicon-remove"></span></button>
+                </span></td>
+            </tr>
+            <tr class="sub">
+                <td class="c1">BABA<span class='topbtnleft'>
+                    <button class="hoverbtn hoverbtn-refresh"><span class="glyphicon glyphicon-refresh"></span></button>
+                </span></td>
+                <td class="c2">67.23</td>
+                <td class="c3">2.38</td>
+                <td class="c4">+3.67%</td>
+                <td class="c5">67.48</td>
+                <td class="c6">67.35</td>
+                <td class="c7">65.61</td>
+                <td class="c8">64.85</td>
+                <td class="c9">25801007<span class='topbtnright'>
+                    <button class="hoverbtn"><span class="glyphicon glyphicon-remove"></span></button>
+                </span></td>
+            </tr>
+            <tr class="sub">
+                <td class="c1">ORCL<span class='topbtnleft'>
+                    <button class="hoverbtn hoverbtn-refresh"><span class="glyphicon glyphicon-refresh"></span></button>
+                </span></td>
+                <td class="c2">38.27</td>
+                <td class="c3">0.28</td>
+                <td class="c4">+0.74%</td>
+                <td class="c5">37.75</td>
+                <td class="c6">37.62</td>
+                <td class="c7">38.18</td>
+                <td class="c8">37.99</td>
+                <td class="c9">19573970<span class='topbtnright'>
+                    <button class="hoverbtn"><span class="glyphicon glyphicon-remove"></span></button>
+                </span></td>
+            </tr>
+            </tbody>
+        </table>
+            <div class ="col-sm-12">
+                <h5 style="margin: 20px 0 15px 0">Tip: The remove function is disabled in the example.</h5>
+            </div>
+    </div>
+    </div>
+</div>
+
+
+<div class="container" id="mainpart">
+    <h4>Input the stock symbols then hit the search button:
+        <span style="font-size: small">MSFT, FB, TWTR...</span>
+    </h4>
+
+    <div class="searchBar col-sm-12">
+        <form id="myform1" class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+                <input type="text" id="searchinput1" class="form-control" placeholder="Enter a company name">
+            </div>
+            <button type="submit" id="searchbtn1"  class="btn btn-default">Search</button>
+        </form>
+    </div>
+
+    <table id="myTable" class="table col-sm-12">
+        <thead>
+            <tr>
+                <!-- <th>#<span class="asignright">sign</span></th> -->
+                <th title="1" class="header sort-table asc">Symbol</th>
+                <th title="2" class="header sort-table asc">Price</th>
+                <th title="3" class="header sort-table asc">Change</th>
+                <th title="4" class="header sort-table asc">Percent Change</th>
+                <th title="5" class="header sort-table asc">Ask</th>
+                <th title="6" class="header sort-table asc">Bid</th>
+                <th title="7" class="header sort-table asc">Open</th>
+                <th title="8" class="header sort-table asc">Previous Close</th>
+                <th title="9" class="header sort-table asc">Volume</th>
+            </tr>
+        </thead>
+        <tbody id="addon"></tbody>
+    </table>
+
+    <div class="searchBar col-sm-12">
+        <form id="myform2" class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+                <input type="text" id="searchinput2" class="form-control" placeholder="Enter a company name">
+            </div>
+            <button type="submit" id="searchbtn2"  class="btn btn-default">Search</button>
+        </form>
+    </div>
+
+    <div class ="col-sm-12">
+        <h5 style="margin: 20px 0 15px 0">Tip*: Hitting the column name can sort the table in different order.</h5>
+        <h5 style="margin: 20px 0 15px 0">Tip**: There are two buttons in every row. Left one is refresh button, right one is remove button.</h5>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row" id="finalpart">
+        <h4>The first version web works. There are a number of possible improvements.</h4>
+        <ul style="list-style-type:circle">
+            <li>Regular Expression Search</li>
+            <li>Data Analysis</li>
+            <li>Refresh Data Automatically</li>
+        </ul>
+
+    </div>
+</div>
+
+<footer id="sharedfooter"></footer>
+
+<script type="text/javascript" src="./myjs/stockpeek.js"></script>
+
+</body>
+</html>

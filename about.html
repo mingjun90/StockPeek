@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+    <link rel="stylesheet" type="text/css" href="mycss/mystyle.css">
+    <link rel="stylesheet" type="text/css" href="mycss/bootstrap.min.css">
+    <script type="text/javascript" src="./myjs/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="./myjs/bootstrap.min.js"></script>
+    <style>
+        .thispagep {
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navigation"></div>
+    <div class="container">
+        <h1>About</h1>
+
+        <p class="thispagep">This is a stock information website based on bootstrap framework</p>
+        <ul class="thispagep">
+            <li>Build a website by using html, css, javascript, the front end is partially base on bootstrap</li>
+            <li>Grabb the stock information with JSON format from Yahoo REST API</li>
+            <li>Show the stock data in the sorting form, develop a sorting function to <code>Sort</code> all columns </li>
+            <li>Develop functions to <code>Refresh</code> and <code>Remove</code> the data </li>
+        </ul>
+        <p style="font-style: italic">Techniques: Web, Bootstrap, jQuery, JSON.</p>
+    </div>
+
+<footer id="sharedfooter"></footer>
+<script>
+    $(document).ready(function() {
+        $("#navigation").load("shared_nav.html");
+        $("#sharedfooter").load("shared_footer.html");
+    });
+</script>
+</body>
+</html>
