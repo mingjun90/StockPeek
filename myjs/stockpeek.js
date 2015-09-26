@@ -55,6 +55,12 @@ $(document).ready(function(){
 				item.Volume+
 				"</td></tr>";
 			$(''+out+'').appendTo($("#addon"));
+
+			$.post("savehistory.php", {Symbol:item.symbol, Price:item.LastTradePriceOnly, Change:item.Change,
+					PercentChange: item.PercentChange, Ask:item.Ask, Bid:item.Bid,
+					Open:item.Open, PreviousClose:item.PreviousClose, Volume:item.Volume}, 
+					function(){});
+			console.log(item.Change);
 		});
 
 		this.form.reset();
