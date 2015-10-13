@@ -3,11 +3,13 @@
 <head>
     <meta charset="utf-8">
     <title>StockPeek</title>
-    <link rel="stylesheet" type="text/css" href="mycss/mystyle.css">
-    <link rel="stylesheet" type="text/css" href="mycss/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./mycss/mystyle.css">
+    <link rel="stylesheet" type="text/css" href="./mycss/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./mycss/jquery.datetimepicker.css"/>
     <script type="text/javascript" src="./myjs/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="./myjs/bootstrap.min.js"></script>
     <script type="text/javascript" src="./myjs/jquery.tablesorter.js"></script>
+    <script type="text/javascript" src="./myjs/moment.min.js"></script>
 </head>
 
 <body id="main-wrapper-for-footer">
@@ -16,7 +18,7 @@
 <div class="container">
     <div class="row">
         <div class="mypage-header col-sm-12">
-            <h1><br>A Web To Peek The Stocks Information<br><br></h1>
+            <h1><br>A Tool To Peek The Stocks Information<br><br></h1>
         </div>
 
         <div class="container" >
@@ -93,6 +95,7 @@
 
 
 <div class="container" id="mainpart">
+
     <h4>Input the stock symbols then hit the search button:
         <span style="font-size: small">MSFT, FB, TWTR...</span>
     </h4>
@@ -139,6 +142,44 @@
     </div>
 </div>
 
+
+<div class="container">
+
+<div style="padding-left: 0px; padding-bottom: 5px;" class="col-sm-2">
+    <button class="btn btn-default" id="showhistory">Search History</button>
+</div>
+
+<div class="col-sm-4" >
+    <input  type="text" class="form-control" value="" id="datetimepicker"/><br><br>
+</div >
+<div class="col-sm-4">
+    <input type="text" class="form-control" value="" id="datetimepicker1"/><br><br>
+</div >
+
+<div class="col-sm-2">
+    <button style="float: right;" id="clearhistory" class="btn btn-default">Clear History</button>
+</div>
+
+<table id="myTable2" class="table col-sm-12">
+    <thead>
+        <tr>
+            <th class="header sort-table asc">Symbol</th>
+            <th class="header sort-table asc">Price</th>
+            <th class="header sort-table asc">Change</th>
+            <th class="header sort-table asc">Percent Change</th>
+            <th class="header sort-table asc">Ask</th>
+            <th class="header sort-table asc">Bid</th>
+            <th class="header sort-table asc">Open</th>
+            <th class="header sort-table asc">Previous Close</th>
+            <th class="header sort-table asc">Volume</th>
+            <th class="header sort-table asc">SearchTime</th>
+        </tr>
+    </thead>
+    <tbody id="txtHint"></tbody>
+</table>
+</div>
+
+
 <div class="container">
     <div class="row" id="finalpart">
         <h4>The first version web works. There are a number of possible improvements.</h4>
@@ -153,6 +194,7 @@
 
 <footer id="sharedfooter"></footer>
 
+<script type="text/javascript" src="./myjs/jquery.datetimepicker.full.js"></script>
 <script type="text/javascript" src="./myjs/stockpeek.js"></script>
 
 </body>

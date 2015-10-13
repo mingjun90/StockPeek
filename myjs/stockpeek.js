@@ -60,7 +60,7 @@ $(document).ready(function(){
 					PercentChange: item.PercentChange, Ask:item.Ask, Bid:item.Bid,
 					Open:item.Open, PreviousClose:item.PreviousClose, Volume:item.Volume}, 
 					function(){});
-			console.log(item.Change);
+			//console.log(item.Change);
 		});
 
 		this.form.reset();
@@ -149,5 +149,49 @@ $(document).ready(function(){
 			//thisrow[0].cells[8].innerText = item.Volume; /*the button will disappear after refresh*/
 		});
 	});
+
+	$("#clearhistory").click(function(){
+		$("#txtHint tr").remove(); 
+		console.log($("#datetimepicker").value);
+	});
+
+
+
+    $("#showhistory").click(function(str) { //pass str to search?
+    // if (str == "") {
+    //     document.getElementById("txtHint").innerHTML = "";
+    //     return;
+    // } else { 
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() { //Call a function when the state changes.
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { // complete and no errors
+                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET","loaddb.php?q="+str,true);
+        xmlhttp.send();
+    // }
+	});
 	
+
+	$.datetimepicker.setLocale('en');
+	$('#datetimepicker').datetimepicker({
+	dayOfWeekStart : 1,
+	lang:'en',
+	disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
+	startDate:  '1986/01/05'
+	});
+
+	$('#datetimepicker1').datetimepicker({
+	dayOfWeekStart : 1,
+	lang:'en',
+	disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
+	startDate:  '1986/01/05'
+	});
 });
